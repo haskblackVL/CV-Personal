@@ -1,96 +1,618 @@
-* {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
-      line-height: 1.6;
-    }
-    .resume {
-      display: flex;
-      max-width: 900px;
-      margin: 20px auto;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-    }
-    .left-panel {
-      background-color: #1f2d3d;
-      color: #fff;
-      width: 35%;
-      padding: 40px 30px;
-    }
-    .img{
-        margin: 0px 5px;
-        width: 60%;
-        height: 15%;
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Elegant corporate color palette */
+  --primary-color: #0f172a; /* Slate 900 */
+  --primary-light: #1e293b; /* Slate 800 */
+  --accent-color: #38bdf8;  /* Light blue accent */
+  --text-dark: #334155;     /* Slate 700 */
+  --text-light: #f1f5f9;    /* Slate 100 */
+  --text-muted: #64748b;    /* Slate 500 */
+  --bg-body: #f8fafc;       /* Slate 50 */
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;   /* Slate 200 */
+  --transition-speed: 0.3s;
 }
 
-    .left-panel h1 {
-      font-size: 2rem;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin-bottom: 5px;
-    }
-    .left-panel h2 {
-      font-size: 1rem;
-      font-weight: 300;
-      color: #86c5ff;
-      margin-bottom: 20px;
-    }
-    .contact, .skills, .education {
-      margin-bottom: 30px;
-    }
-    .contact p, .skills ul li, .education p {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-    .skills ul, .education ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .right-panel {
-      width: 65%;
-      padding: 40px;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      color: #1f2d3d;
-    }
-    .job {
-      margin-bottom: 20px;
-    }
-    .job h4 {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #1f2d3d;
-    }
-    .job span {
-      display: block;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    .job p {
-      margin-top: 5px;
-      font-size: 0.9rem;
-    }
-    a{
-      color: #fff;
-    }
+body.dark-mode {
+  --primary-color: #020617; /* Deepest Slate */
+  --primary-light: #0f172a; /* Slate 900 */
+  --accent-color: #38bdf8;
+  --text-dark: #cbd5e1;     /* Slate 300 */
+  --text-light: #f8fafc;    /* Slate 50 */
+  --text-muted: #94a3b8;    /* Slate 400 */
+  --bg-body: #0f172a;       /* Slate 900 */
+  --bg-card: #1e293b;       /* Slate 800 */
+  --border-color: #334155;  /* Slate 700 */
+}
 
-    .certificate{
-      color:#000;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Container */
+.resume {
+  display: flex;
+  max-width: 1000px;
+  margin: 40px auto;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Left Panel */
+.left-panel {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  width: 35%;
+  padding: 40px 30px;
+}
+
+.profile-photo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.left-panel .img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-light);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed) ease;
+}
+
+.left-panel .img:hover {
+  transform: scale(1.05);
+}
+
+.left-panel h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.left-panel h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 35px;
+}
+
+/* Section titles in Left Panel */
+.left-panel h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.contact, .education, .skills, .competencies, .references, .personal-info {
+  margin-bottom: 35px;
+}
+
+/* Personal Info section */
+.personal-info ul li {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.personal-info ul li::before {
+  display: none;
+}
+
+.personal-info ul li strong {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.contact p {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact p strong {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.contact p a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+  word-break: break-all;
+}
+
+.contact p a:hover {
+  color: var(--accent-color);
+}
+
+/* Left panel lists */
+.left-panel ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.left-panel ul li {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.left-panel ul li::before {
+  content: "•";
+  color: var(--accent-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Left panel Education styling */
+.education ul li::before {
+  display: none;
+}
+.education ul li {
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+.edu-title {
+  font-weight: 500;
+  color: #fff;
+}
+.edu-details {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Left panel References styling */
+.references ul li::before {
+  display: none;
+}
+.references ul li {
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+.references ul li strong {
+  font-size: 0.9rem;
+  color: #fff;
+  display: block;
+}
+.references ul li p {
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+.references ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+.references ul li a:hover {
+  color: var(--accent-color);
+}
+
+
+/* Right Panel */
+.right-panel {
+  width: 65%;
+  padding: 40px 50px;
+  background-color: var(--bg-card);
+}
+
+.right-panel .section {
+  margin-bottom: 40px;
+}
+
+.right-panel .section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.right-panel .section h3::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.right-panel .section p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+/* Job elements */
+.job {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.job-header h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.job-header .date {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background-color: var(--bg-body);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.job .role {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.job .description {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.job .description::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+.job ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.job ul li {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+/* Certificates & Learning lists in right panel */
+.certificates-list, .learning-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.certificates-list li, .learning-list li {
+  font-size: 0.9rem;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all var(--transition-speed) ease;
+}
+
+.certificates-list li:hover, .learning-list li:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-muted);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.certificates-list li {
+  display: flex;
+  align-items: center;
+}
+
+.certificate-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.certificate-link:hover {
+  color: var(--primary-light);
+}
+
+.certificate-link::after {
+  content: "→";
+  font-size: 1rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+.certificate-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Responsive Layout */
+@media (max-width: 850px) {
+  .resume {
+    flex-direction: column;
+    margin: 15px;
+  }
+  
+  .left-panel {
+    width: 100%;
+    padding: 30px;
+  }
+  
+  .right-panel {
+    width: 100%;
+    padding: 30px;
+  }
+  
+  .left-panel h1 {
+    font-size: 1.8rem;
+  }
+  
+  .left-panel h2 {
+    margin-bottom: 25px;
+  }
+  
+  .left-panel .img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-list, .learning-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Floating controls container */
+.floating-controls {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+/* Control buttons general styling */
+.control-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: 1px solid var(--primary-light);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-speed) ease;
+}
+
+.theme-btn {
+  padding: 12px;
+  width: 46px;
+  height: 46px;
+  align-self: flex-end;
+}
+
+.control-btn:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+.pdf-icon, .icon {
+  display: inline-block;
+  transition: transform var(--transition-speed) ease;
+}
+
+.control-btn:hover .pdf-icon,
+.control-btn:hover .icon {
+  transform: scale(1.1);
+}
+
+/* Badge and Certificate wrapper Styles */
+.certificate-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.certificate-title {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
+}
+
+body.dark-mode .certificate-title {
+  color: var(--text-light);
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-ongoing {
+  background-color: #fef3c7; /* Light amber */
+  color: #d97706;            /* Amber 600 */
+  border: 1px solid #fcd34d;
+}
+
+body.dark-mode .badge-ongoing {
+  background-color: #78350f; /* Dark amber */
+  color: #fde68a;            /* Light amber 200 */
+  border: 1px solid #b45309;
+}
+
+/* Print styles - Keep structure intact when exporting to PDF */
+@media print {
+  /* Force light mode variables on print to save ink */
+  :root, body.dark-mode {
+    --primary-color: #0f172a !important;
+    --primary-light: #1e293b !important;
+    --text-dark: #334155 !important;
+    --text-light: #f1f5f9 !important;
+    --text-muted: #64748b !important;
+    --bg-body: #f8fafc !important;
+    --bg-card: #ffffff !important;
+    --border-color: #e2e8f0 !important;
+  }
+
+  /* Hide the floating controls */
+  .floating-controls, .print-btn, .theme-btn {
+    display: none !important;
+  }
+  
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Reset container margins for print */
+  .resume {
+    flex-direction: row !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
+  /* Keep the left panel styling exactly as screen */
+  .left-panel {
+    display: block !important;
+    width: 35% !important;
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    padding: 30px 20px !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .left-panel h1,
+  .left-panel h2,
+  .left-panel h3,
+  .left-panel .edu-title,
+  .left-panel .references strong {
+    color: #ffffff !important;
+  }
+
+  /* Keep right panel style exactly as screen */
+  .right-panel {
+    display: block !important;
+    width: 65% !important;
+    background-color: #ffffff !important;
+    padding: 30px 40px !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* Setup grid layouts for printing cards */
+  .certificates-list, .learning-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .certificates-list li, .learning-list li {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* Ensure page breaks do not cut headers or blocks */
+  .section, .job, .education, .skills, .competencies, .references {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Remove link outlines or decorations for print */
+  a {
+    text-decoration: none !important;
+  }
+
+  /* Setup A4/Letter size print options */
+  @page {
+    size: letter;
+    margin: 0;
+  }
+}
