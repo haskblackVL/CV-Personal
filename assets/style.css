@@ -229,6 +229,32 @@ body {
   color: var(--accent-color);
 }
 
+/* WhatsApp icon link styles */
+.link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wa-icon {
+  flex-shrink: 0;
+  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  color: var(--accent-color);
+  opacity: 0.75;
+}
+
+.link-with-icon:hover .wa-icon {
+  color: #25d366; /* WhatsApp green */
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+@media print {
+  .wa-icon {
+    display: none;
+  }
+}
+
 
 /* Right Panel */
 .right-panel {
